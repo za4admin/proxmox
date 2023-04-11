@@ -1,0 +1,28 @@
+Add docker officela key
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+
+install docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+
+Add stable repo
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+verify docker is running
+	systemctl status docker
+
+
+Install portainer
+	docker run -d \
+	--name="portainer" \
+	--restart on-failure \
+	-p 9000:9000 \
+	-p 8000:8000 \
+	-v /var/run/docker.sock:/var/run/docker.sock \
+	-v portainer_data:/data \
+	portainer/portainer-ce:latest
