@@ -3,7 +3,15 @@ docker run  # creates a new container and runs
             # -d  starts detach node
             # -p binds the localhost port to the container port   host:container
             # --name "names the container for easy reference
-            # ex:  docker run --name web-app -d -p 8088:80 nginx:1.23
+            # -e are enviroment variables (these are different for every app and you can find them in the doicker image officeal documentation)
+            # --net Creates a specific closed network (like a vlan) and containeres in the same network can talk to each other via --name 
+            # ex:       docker run -d \
+                        -p 8088:80 \
+                        -e adminuser=admin \
+                        -e adminpw=password \
+                        --net nginx-net \
+                        --name web-app \
+                        nginx:1.23
 
 
 docker pull # pulls down and image from docker repo
