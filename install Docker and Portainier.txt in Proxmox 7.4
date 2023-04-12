@@ -1,23 +1,13 @@
-Add docker officela key
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-
-install docker
+#install docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
 
-Add stable repo
-echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-
-verify docker is running
+#verify docker is running
 	systemctl status docker
 
 
-Install portainer
+#Install portainer
 	docker run -d \
 	--name="portainer" \
 	--restart on-failure \
@@ -29,5 +19,5 @@ Install portainer
 
 
 
-More info found here
+#More info found here
 https://thehomelab.wiki/books/promox-ve/page/setup-and-install-docker-in-a-promox-7-lxc-conainer
