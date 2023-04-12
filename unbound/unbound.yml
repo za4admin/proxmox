@@ -1,11 +1,3 @@
-version: '3'
-services:
-  unbound:
-    image: unbound:latest
-    
-    ports: 
-      - 5335:53/udp
-      - 5335:53/tcp
-      
-     enviroment:
-      --restart=always mvance/unbound:latest
+apt get dnsutils /y
+
+wget https://www.internic.net/domain/named.root -qO- | tee /var/lib/unbound/root.hints
