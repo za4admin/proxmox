@@ -1,0 +1,35 @@
+docker run  # creates a new container and runs
+            # :tag name
+            # -d  starts detach node
+            # -p binds the localhost port to the container port   host:container
+            # --name "names the container for easy reference
+            # ex:  docker run --name web-app -d -p 8088:80 nginx:1.23
+
+
+docker pull # pulls down and image from docker repo
+            # ex: docker pull nginx:1.25 - without a tag number, the latest gets downloaded.
+            # :1.25 refers to the tag or version number
+            
+docker images # shows the images that have been downloaded
+
+
+
+docker ps # shows the current running containers
+
+docker log "container name or ID"
+
+#########################
+Port bindings
+#########################
+          # -p binds the localhost port to the container port   host:container
+          
+          
+########################
+View all containers
+########################
+        docker ps -a
+
+########################
+Restart a created container
+########################
+        docker start "container id or name"
