@@ -5,6 +5,7 @@ docker run  # creates a new container and runs
             # --name "names the container for easy reference
             # -e are enviroment variables (these are different for every app and you can find them in the doicker image officeal documentation)
             # --net Creates a specific closed network (like a vlan) and containeres in the same network can talk to each other via --name 
+                        #if using docker compuse yml file, then the network will be created automatically.
             # ex:       docker run -d \
                         -p 8088:80 \
                         -e adminuser=admin \
