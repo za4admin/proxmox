@@ -1,0 +1,3 @@
+#install unbound
+docker run --name unbound -d -p 5335:53/udp -p 5335:53/tcp \
+--restart=always mvance/unbound:latest
